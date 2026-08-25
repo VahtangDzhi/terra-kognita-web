@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Terra Kognita | Smart Card Solutions</title>
+  <title>Terra Kognita | Решения на базе смарт-карт</title>
   <link rel="icon" href="terra-kognita-logo.jpg">
   <style>
     :root {
@@ -955,7 +955,7 @@
     @media (max-width: 980px) {
       .nav { align-items: flex-start; }
       .navlinks { display: none; }
-      .hero-inner, .section-head, .map-block, .contact { grid-template-columns: 1fr; }
+      .hero-inner, .section-head, .map-block { grid-template-columns: 1fr; }
       .tech-panel { min-height: 360px; }
       .grid.three, .grid.four, .metrics, .specs, .timeline, .process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
@@ -1529,19 +1529,11 @@
     }
 
     .contact {
-      grid-template-columns: .95fr 1.05fr;
-      gap: 0;
-      border-left: 1px solid var(--line);
-      border-top: 1px solid var(--line);
-      align-items: stretch;
+      display: block;
     }
 
-    .contact > div,
-    .contact form {
-      background: var(--panel);
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 38px;
+    .contact > div {
+      display: none;
     }
 
     input,
@@ -4087,6 +4079,49 @@
         margin-top: 18px !important;
       }
     }
+
+
+    /* Final layout fixes */
+    @media (min-width: 901px) {
+      .section-head {
+        grid-template-columns: minmax(0, 1fr) minmax(390px, 440px) !important;
+        gap: clamp(54px, 7vw, 112px) !important;
+        align-items: center !important;
+      }
+
+      .section-head p,
+      .contact .intro {
+        justify-self: end !important;
+        margin-left: auto !important;
+      }
+
+      #process .section-head p {
+        max-width: 430px !important;
+        transform: translateX(clamp(30px, 4.5vw, 76px));
+      }
+    }
+
+    @media (max-width: 900px) {
+      #process .section-head p {
+        transform: none !important;
+      }
+    }
+
+    .footer-inner {
+      flex-wrap: wrap;
+      justify-content: center !important;
+      text-align: center;
+      gap: 12px 20px !important;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .footer-inner a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+    }
+
   </style>
 </head>
 <body>
@@ -4094,7 +4129,7 @@
     <nav class="nav">
       <a class="brand" href="#home" aria-label="Terra Kognita home">
         <span class="brand-mark"><img src="terra-kognita-logo.jpg" alt=""></span>
-        <span class="brand-word"><span>Terra Kognita</span><small>Smart Card Solutions</small></span>
+        <span class="brand-word"><span>Terra Kognita</span><small>Решения на базе смарт-карт</small></span>
       </a>
       <div class="navlinks">
         <a href="#about" data-i18n="nav.about">Кто мы</a>
@@ -4118,7 +4153,7 @@
         <div>
           <div class="hero-logo-card"><img src="terra-kognita-logo.jpg" alt="Terra Kognita logo"></div>
           <p class="eyebrow">Terra Kognita</p>
-          <h1 data-i18n="hero.title">Smart Card Solutions для Telecom, IoT и цифровых сервисов</h1>
+          <h1 data-i18n="hero.title">Решения на базе смарт-карт для телеком, IoT и цифровых сервисов</h1>
           <p class="lead" data-i18n="hero.lead">Решения на базе смарт-карт для операторов связи, IoT-проектов и цифровых сервисов в странах СНГ и Центральной Азии.</p>
           <p class="hero-copy" data-i18n="hero.copy">Terra Kognita объединяет экспертизу команды, технологическое know-how, R&D-возможности и партнёрскую производственную экосистему для проектов USIM, IoT, eUICC, OTA и RSP.</p>
           <div class="actions">
@@ -4129,7 +4164,7 @@
         </div>
         <div class="tech-panel" aria-label="Connectivity visual">
           <div class="panel-logo-watermark"><img src="terra-kognita-logo.jpg" alt=""></div>
-          <svg class="map-line" viewBox="0 0 560 490" role="img" aria-label="Regional network and SIM card">
+          <svg class="map-line" viewBox="0 0 560 490" role="img" aria-label="Региональная сеть и смарт-карта">
             <defs>
               <linearGradient id="route" x1="0" x2="1">
                 <stop stop-color="#22b7b1"/>
@@ -4155,10 +4190,7 @@
     </section>
 
     <div class="ticker" aria-hidden="true">
-      <div class="ticker-track">
-        <span>USIM</span><span>eUICC</span><span>OTA</span><span>RSP</span><span>IoT / M2M</span><span>Central Asia</span><span>Smart Cards</span><span>Fintech</span>
-        <span>USIM</span><span>eUICC</span><span>OTA</span><span>RSP</span><span>IoT / M2M</span><span>Central Asia</span><span>Smart Cards</span><span>Fintech</span>
-      </div>
+      <div class="ticker-track" data-ticker></div>
     </div>
 
     <section class="igs-showcase" id="platform">
@@ -4166,7 +4198,7 @@
         <div class="igs-head">
           <div>
             <div class="kicker" data-i18n="showcase.kicker">Платформа</div>
-            <h2 data-i18n="showcase.title">Smart card delivery solution</h2>
+            <h2 data-i18n="showcase.title">Платформа доставки смарт-карт</h2>
           </div>
           <div class="igs-controls" aria-label="Showcase controls">
             <button type="button" class="igs-prev" aria-label="Previous">‹</button>
@@ -4175,21 +4207,21 @@
         </div>
         <div class="igs-track">
           <article class="igs-card">
-            <img src="tk-secure-os.png" alt="Secure smart card OS render">
+            <img src="tk-secure-os.png" alt="Защищённая операционная система смарт-карты">
             <div class="igs-content">
               <div>
-                <h3 data-i18n="showcase.card1Title">Secure OS, configured for operators</h3>
-                <p data-i18n="showcase.card1Text">From classic USIM to eUICC-ready profiles, the stack is prepared for secure telecom and IoT deployment.</p>
+                <h3 data-i18n="showcase.card1Title">Защищённая ОС под задачи операторов</h3>
+                <p data-i18n="showcase.card1Text">От классических USIM до eUICC-ready профилей: стек готовится под защищённое телеком и IoT внедрение.</p>
               </div>
               <div class="igs-bars" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
             </div>
           </article>
           <article class="igs-card">
-            <img src="tk-rollout.png" alt="Global rollout network render">
+            <img src="tk-rollout.png" alt="Сеть регионального запуска">
             <div class="igs-content">
               <div>
-                <h3 data-i18n="showcase.card2Title">Ready for regional rollout</h3>
-                <p data-i18n="showcase.card2Text">Support for Central Asia and CIS projects: supply, configuration, testing and launch coordination.</p>
+                <h3 data-i18n="showcase.card2Title">Готовность к региональному развёртыванию</h3>
+                <p data-i18n="showcase.card2Text">Поддержка проектов в Центральной Азии и СНГ: поставка, конфигурация, тестирование и координация запуска.</p>
               </div>
               <div class="igs-orbit" aria-hidden="true"></div>
             </div>
@@ -4198,8 +4230,8 @@
             <img src="asset-lines.jpg" alt="Data flow lines">
             <div class="igs-content">
               <div>
-                <h3 data-i18n="showcase.card3Title">OTA, RSP and lifecycle support</h3>
-                <p data-i18n="showcase.card3Text">Animated data-flow workflows for remote management, profile provisioning and fleet updates.</p>
+                <h3 data-i18n="showcase.card3Title">OTA, RSP и поддержка жизненного цикла</h3>
+                <p data-i18n="showcase.card3Text">Сценарии потоков данных для удалённого управления, инициализации профилей и обновления парка.</p>
               </div>
               <div class="igs-bars" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
             </div>
@@ -4213,13 +4245,13 @@
         <div class="section-head">
           <div>
             <div class="kicker" data-i18n="about.kicker">Кто мы</div>
-            <h2 data-i18n="about.title">Региональные корни. Международная экспертиза. Надёжные smart card решения.</h2>
+            <h2 data-i18n="about.title">Региональные корни. Международная экспертиза. Надёжные решения на базе смарт-карт.</h2>
           </div>
           <p data-i18n="about.text">Terra Kognita — группа компаний, специализирующаяся на поставке смарт-карт и связанных решений для операторов связи, IoT-проектов, производителей устройств и корпоративных клиентов.</p>
         </div>
         <div class="map-block">
           <div class="visual-map">
-            <svg class="regional-map-svg" viewBox="0 0 640 360" role="img" aria-label="Bishkek, Almaty and Dubai regional route">
+            <svg class="regional-map-svg" viewBox="0 0 640 360" role="img" aria-label="Бишкек, Алматы и Дубай региональный маршрут">
               <defs>
                 <filter id="routeGlow" x="-25%" y="-25%" width="150%" height="150%">
                   <feGaussianBlur stdDeviation="3.2" result="blur"/>
@@ -4269,8 +4301,8 @@
           </div>
           <div class="office-list">
             <div class="office" data-office="bishkek" tabindex="0"><strong data-i18n="office.bishkek">Бишкек — главный офис продаж</strong><span data-i18n="office.bishkekText">Региональная координация и работа с рынками Центральной Азии.</span></div>
-            <div class="office" data-office="almaty" tabindex="0"><strong data-i18n="office.almaty">Алматы — sales branch</strong><span data-i18n="office.almatyText">Покрытие рынка Казахстана и Центральной Азии.</span></div>
-            <div class="office" data-office="dubai" tabindex="0"><strong data-i18n="office.dubai">Дубай — разработка ПО</strong><span data-i18n="office.dubaiText">Международный технологический hub.</span></div>
+            <div class="office" data-office="almaty" tabindex="0"><strong data-i18n="office.almaty">Алматы — офис продаж</strong><span data-i18n="office.almatyText">Покрытие рынка Казахстана и Центральной Азии.</span></div>
+            <div class="office" data-office="dubai" tabindex="0"><strong data-i18n="office.dubai">Дубай — разработка ПО</strong><span data-i18n="office.dubaiText">Международный технологический хаб.</span></div>
             <div class="office" data-office="partners" tabindex="0"><strong data-i18n="office.partners">Производственные партнёры</strong><span data-i18n="office.partnersText">Партнёрские фабрики, поставщики компонентов и SAS-сертифицированные производства.</span></div>
           </div>
         </div>
@@ -4290,7 +4322,7 @@
           <div class="mission-visual">
             <span>01</span>
             <strong data-i18n="mission.missionTitle">Миссия</strong>
-            <p data-i18n="mission.missionText">Давать операторам, IoT-командам и цифровым сервисам надёжную smart card основу: USIM, eUICC, OTA и RSP в одной технологической логике.</p>
+            <p data-i18n="mission.missionText">Давать операторам, IoT-командам и цифровым сервисам надёжную основу на базе смарт-карт: USIM, eUICC, OTA и RSP в одной технологической логике.</p>
           </div>
           <div class="mission-stack">
             <article class="mission-card">
@@ -4313,7 +4345,7 @@
         <div class="section-head">
           <div>
             <div class="kicker" data-i18n="solutions.kicker">Преимущества и решения</div>
-            <h2 data-i18n="solutions.title">Одна экосистема. Несколько сценариев smart card.</h2>
+            <h2 data-i18n="solutions.title">Одна экосистема. Несколько сценариев смарт-карт.</h2>
           </div>
           <p data-i18n="solutions.text">Terra Kognita предлагает решения для мобильной связи, IoT и M2M, embedded SIM, удалённого управления, RSP-проектов и финтех-направления.</p>
         </div>
@@ -4328,14 +4360,14 @@
         <div class="section-head">
           <div>
             <div class="kicker" data-i18n="products.kicker">Продукты</div>
-            <h2 data-i18n="products.title">Линейка продуктов для telecom, IoT и цифровой инфраструктуры.</h2>
+            <h2 data-i18n="products.title">Линейка продуктов для телеком, IoT и цифровой инфраструктуры.</h2>
           </div>
           <p data-i18n="products.text">Классические USIM-карты, IoT и M2M решения, eUICC / eSIM вертикаль, OTA и RSP проекты, а также продукты для банковского сектора.</p>
         </div>
         <div class="image-band">
-          <div class="image-panel"><img src="asset-circuit.jpg" alt="Circuit board close-up"></div>
+          <div class="image-panel"><img src="asset-circuit.jpg" alt="Микросхема смарт-карты крупным планом"></div>
           <div class="image-caption">
-            <strong data-i18n="image.productTitle">R&D / smart card stack</strong>
+            <strong data-i18n="image.productTitle">R&D / стек смарт-карт</strong>
             <span data-i18n="image.productText">Компоненты, чипы и техническая адаптация под операторские, IoT и embedded-сценарии.</span>
           </div>
         </div>
@@ -4355,10 +4387,10 @@
         </div>
         <div class="image-band">
           <div class="image-caption">
-            <strong data-i18n="image.projectTitle">Telecom / IoT infrastructure</strong>
-            <span data-i18n="image.projectText">Смарт-карта как часть сети: операторы, частные сети, connected devices и удалённое управление.</span>
+            <strong data-i18n="image.projectTitle">Телеком / IoT инфраструктура</strong>
+            <span data-i18n="image.projectText">Смарт-карта как часть сети: операторы, частные сети, подключённые устройства и удалённое управление.</span>
           </div>
-          <div class="image-panel"><img src="asset-tower-wide.png" alt="Telecom tower"></div>
+          <div class="image-panel"><img src="asset-tower-wide.png" alt="Телекоммуникационная башня"></div>
         </div>
         <div class="grid two" id="projectCards"></div>
       </div>
@@ -4394,26 +4426,30 @@
     </section>
 
     <section id="contact" class="dark">
-      <div class="wrap contact">
-        <div>
-          <div class="kicker" data-i18n="contact.kicker">Контакты</div>
-          <h2 data-i18n="contact.title">Давайте обсудим ваш проект</h2>
-          <p class="intro" data-i18n="contact.text">Terra Kognita открыта к партнёрству с операторами связи, IoT-компаниями, OEM-производителями, интеграторами и финансовыми организациями.</p>
-          <p style="margin-top:24px"><strong>Email:</strong> <a href="mailto:info@terkog.com">info@terkog.com</a></p>
+      <div class="wrap">
+        <div class="section-head" style="margin-bottom: 34px;">
+          <div>
+            <div class="kicker" data-i18n="contact.kicker">Контакты</div>
+            <h2 data-i18n="contact.title">Давайте обсудим ваш проект</h2>
+          </div>
+          <p data-i18n="contact.text">Terra Kognita открыта к партнёрству с операторами связи, IoT-компаниями, OEM-производителями, интеграторами и финансовыми организациями.</p>
         </div>
-        <form>
-          <input data-i18n-placeholder="form.name" placeholder="Имя" required>
-          <input data-i18n-placeholder="form.company" placeholder="Компания">
-          <input data-i18n-placeholder="form.country" placeholder="Страна">
-          <input data-i18n-placeholder="form.email" placeholder="Email" type="email" required>
-          <input data-i18n-placeholder="form.phone" placeholder="Телефон / мессенджер">
-          <select aria-label="Area of interest">
+        <form action="https://formsubmit.co/info@terkog.com" method="POST" style="max-width: 600px; margin: 0 auto; padding: 38px; background: rgba(255,255,255,.08); border-radius: 22px; display: grid; gap: 18px;">
+          <input type="hidden" name="_subject" value="New request from Terra Kognita website">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input name="name" data-i18n-placeholder="form.name" placeholder="Имя" required style="padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.06); color: white;">
+          <input name="company" data-i18n-placeholder="form.company" placeholder="Компания" style="padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.06); color: white;">
+          <input name="country" data-i18n-placeholder="form.country" placeholder="Страна" style="padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.06); color: white;">
+          <input name="email" data-i18n-placeholder="form.email" placeholder="Электронная почта" type="email" required style="padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.06); color: white;">
+          <input name="phone" data-i18n-placeholder="form.phone" placeholder="Телефон / мессенджер" style="padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.06); color: white;">
+          <select name="interest" aria-label="Area of interest" style="padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.06); color: white;">
             <option data-i18n="form.interest">Интересующее направление</option>
-            <option>USIM</option><option>IoT / M2M</option><option>eUICC / eSIM</option><option>OTA</option><option>RSP</option><option>Banking / Fintech</option><option>Partnership</option>
+            <option>USIM</option><option>IoT / M2M</option><option>eUICC / eSIM</option><option>OTA</option><option>RSP</option><option>Банковский сектор / Финтех</option><option>Партнёрство</option>
           </select>
-          <textarea data-i18n-placeholder="form.message" placeholder="Сообщение"></textarea>
-          <label class="consent"><input type="checkbox" required><span data-i18n="form.consent">Нажимая кнопку «Отправить», я соглашаюсь на обработку персональных данных и подтверждаю, что Terra Kognita может связаться со мной по указанным контактам для ответа на мой запрос.</span></label>
-          <button class="btn primary" type="submit" data-i18n="form.submit">Отправить запрос</button>
+          <textarea name="message" data-i18n-placeholder="form.message" placeholder="Сообщение" style="padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.06); color: white; min-height: 120px; resize: vertical;"></textarea>
+          <label class="consent" style="display: flex; gap: 12px; align-items: flex-start; color: rgba(255,255,255,.72); font-size: 14px; line-height: 1.4;"><input type="checkbox" required style="margin-top: 2px; flex-shrink: 0;"><span data-i18n="form.consent">Нажимая кнопку «Отправить», я соглашаюсь на обработку персональных данных и подтверждаю, что Terra Kognita может связаться со мной по указанным контактам для ответа на мой запрос.</span></label>
+          <button class="btn primary" type="submit" data-i18n="form.submit" style="align-self: center; min-width: 200px; margin-top: 8px;">Отправить запрос</button>
         </form>
       </div>
     </section>
@@ -4421,9 +4457,9 @@
 
   <footer>
     <div class="footer-inner">
-      <strong>Terra Kognita</strong>
-      <span>info@terkog.com</span>
-      <span data-i18n="footer.copy">© 2026 Terra Kognita. Smart card solutions for connected markets.</span>
+      <span>© Terra Kognita LLC. All rights reserved.</span>
+      <a href="#" data-i18n="footer.privacy">Privacy Policy</a>
+      <a href="mailto:info@terkog.com">info@terkog.com</a>
     </div>
   </footer>
 
@@ -4432,124 +4468,124 @@
       ru: {
         nav: { about: "Кто мы", solutions: "Решения", products: "Продукты", projects: "Проекты", ecosystem: "Экосистема", contact: "Контакты" },
         hero: {
-          title: "Smart Card Solutions для Telecom, IoT и цифровых сервисов",
+          title: "Решения на базе смарт-карт для телеком, IoT и цифровых сервисов",
           lead: "Решения на базе смарт-карт для операторов связи, IoT-проектов и цифровых сервисов в странах СНГ и Центральной Азии.",
           copy: "Terra Kognita объединяет экспертизу команды, технологическое know-how, R&D-возможности и партнёрскую производственную экосистему для проектов USIM, IoT, eUICC, OTA и RSP."
         },
         cta: { talk: "Связаться с командой", solutions: "Смотреть решения", products: "Продукты" },
-        about: { kicker: "Кто мы", title: "Smart card партнёр для связанного рынка", text: "Региональная команда, международная экспертиза и технологическая база для telecom, IoT, производителей устройств и корпоративных клиентов." },
+        about: { kicker: "Кто мы", title: "Партнёр на базе смарт-карт для связанных рынков", text: "Региональная команда, международная экспертиза и технологическая база для телеком, IoT, производителей устройств и корпоративных клиентов." },
         office: {
           bishkek: "Бишкек — главный офис продаж", bishkekText: "Региональная координация и работа с рынками Центральной Азии.",
-          almaty: "Алматы — sales branch", almatyText: "Покрытие рынка Казахстана и Центральной Азии.",
-          dubai: "Дубай — разработка ПО", dubaiText: "Международный технологический hub.",
+          almaty: "Алматы — офис продаж", almatyText: "Покрытие рынка Казахстана и Центральной Азии.",
+          dubai: "Дубай — разработка ПО", dubaiText: "Международный технологический хаб.",
           partners: "Производственные партнёры", partnersText: "Партнёрские фабрики, поставщики компонентов и SAS-сертифицированные производства."
         },
         mission: {
           kicker: "Миссия. Видение. Цель.", title: "Доверие. Масштаб. Запуск.",
           close: "Каждый проект собирается вокруг понятной цели: защищённое подключение должно быстро внедряться, стабильно работать и легко масштабироваться.",
-          missionTitle: "Миссия", missionText: "Давать операторам, IoT-командам и цифровым сервисам надёжную smart card основу: USIM, eUICC, OTA и RSP в одной технологической логике.",
+          missionTitle: "Миссия", missionText: "Давать операторам, IoT-командам и цифровым сервисам надёжную основу на базе смарт-карт: USIM, eUICC, OTA и RSP в одной технологической логике.",
           visionTitle: "Видение", visionText: "Быть партнёром для рынков СНГ и Центральной Азии, где важны локальная экспертиза, безопасность и готовность к росту.",
           goalTitle: "Цель", goalText: "Упростить путь от требования до работающего решения: подбор, конфигурация, поставка, тестирование, запуск и поддержка."
         },
-        solutions: { kicker: "Преимущества и решения", title: "Smart card экосистема", text: "USIM, eUICC, OTA, RSP, IoT / M2M и финтех-направления собраны в одну понятную линейку решений." },
-        products: { kicker: "Продукты", title: "Линейка для telecom и IoT", text: "Классические USIM-карты, embedded SIM, удалённое управление, RSP-проекты и решения для банковского сектора." },
-        projects: { kicker: "Проекты", title: "От поставки до запуска", text: "Сопровождение проектов, где smart card становится частью цифровой инфраструктуры: IoT, OTA, RSP, eUICC и операторские сервисы." },
+        solutions: { kicker: "Преимущества и решения", title: "Экосистема смарт-карт", text: "USIM, eUICC, OTA, RSP, IoT / M2M и финтех-направления собраны в одну понятную линейку решений." },
+        products: { kicker: "Продукты", title: "Линейка для телеком и IoT", text: "Классические USIM-карты, embedded SIM, удалённое управление, RSP-проекты и решения для банковского сектора." },
+        projects: { kicker: "Проекты", title: "От поставки до запуска", text: "Сопровождение проектов, где смарт-карта становится частью цифровой инфраструктуры: IoT, OTA, RSP, eUICC и операторские сервисы." },
         ecosystem: { kicker: "Экосистема и цифры", title: "Партнёры. Опыт. Покрытие.", text: "Производственные мощности партнёрских фабрик, поставленные продукты и лицензии, опыт команды и клиентская абонентская база." },
         timeline: { title: "Основные этапы" },
         process: { kicker: "Как мы работаем", title: "Путь к внедрению", text: "От первичного требования и конфигурации до тестирования, запуска, эксплуатации и дальнейшего масштабирования." },
         contact: { kicker: "Контакты", title: "Обсудим проект", text: "Terra Kognita открыта к партнёрству с операторами связи, IoT-компаниями, OEM-производителями, интеграторами и финансовыми организациями." },
-        form: { name: "Имя", company: "Компания", country: "Страна", email: "Email", phone: "Телефон / мессенджер", interest: "Интересующее направление", message: "Сообщение", consent: "Нажимая кнопку «Отправить», я соглашаюсь на обработку персональных данных и подтверждаю, что Terra Kognita может связаться со мной по указанным контактам для ответа на мой запрос.", submit: "Отправить запрос" },
-        footer: { copy: "© 2026 Terra Kognita. Smart card solutions for connected markets." },
+        form: { name: "Имя", company: "Компания", country: "Страна", email: "Электронная почта", phone: "Телефон / мессенджер", interest: "Интересующее направление", message: "Сообщение", consent: "Нажимая кнопку «Отправить», я соглашаюсь на обработку персональных данных и подтверждаю, что Terra Kognita может связаться со мной по указанным контактам для ответа на мой запрос.", submit: "Отправить запрос" },
+        footer: { copy: "© Terra Kognita LLC. Все права защищены.", privacy: "Политика конфиденциальности" },
         strengths: [
           ["Региональная экспертиза", "Работа с рынками Центральной Азии и СНГ, понимание логистики, локальных требований и B2B-проектов."],
-          ["20+ лет в smart card", "Опыт команды помогает сопровождать клиентов от выбора конфигурации до тестирования и поддержки."],
+          ["20+ лет в смарт-картах", "Опыт команды помогает сопровождать клиентов от выбора конфигурации до тестирования и поддержки."],
           ["R&D и техподдержка", "Собственная R&D-команда и техническая поддержка для проектов, где стандартной карты недостаточно."],
           ["Производственные партнёры", "Работа с поставщиками чипов и партнёрскими фабриками, включая SAS-сертифицированные площадки."]
         ],
         solutionTiles: [
           ["USIM для операторов", "Классические USIM для 2G, 3G, 4G и 5G с уровнями Core, Extended и Advanced."],
-          ["IoT / M2M Smart Cards", "SIM-решения для телеметрии, терминалов, логистики, промышленного IoT и smart city."],
-          ["eUICC / eSIM", "Embedded и digital SIM для удалённого управления профилями и гибкого подключения устройств."],
-          ["OTA Management", "Удалённое управление SIM-картами и обновление содержимого без участия абонента."],
-          ["RSP Projects", "Сопровождение проектов виртуализации SIM и управления операторскими профилями."],
-          ["Banking / Fintech", "Smart card решения для защищённой идентификации и финансовых сервисов."]
+          ["IoT / M2M смарт-карты", "SIM-решения для телеметрии, терминалов, логистики, промышленного IoT и умного города."],
+          ["eUICC / eSIM", "Встроенные и цифровые SIM для удалённого управления профилями и гибкого подключения устройств."],
+          ["OTA-управление", "Удалённое управление SIM-картами и обновление содержимого без участия абонента."],
+          ["RSP-проекты", "Сопровождение проектов виртуализации SIM и управления операторскими профилями."],
+          ["Банковский сектор / Финтех", "Решения на базе смарт-карт для защищённой идентификации и финансовых сервисов."]
         ],
         productsData: [
           { id: "simteq", name: "simTeq", title: "Классический USIM. Надёжное подключение. Гибкая конфигурация.", text: "Линейка классических USIM-карт для мобильных операторов, включая Core, Ext и Adv уровни.", specs: [["Core", ["64 KB / 128 KB", "SIM / USIM", "SMS-PP OTA", "3GPP / ETSI R5–R6"]], ["Ext", ["64 KB / 128 KB", "SIM / USIM / ISIM", "SMS-PP / CATTP / HTTPS", "Milenage / TUAK"]], ["Adv", ["128 KB / 256 KB / 512 KB", "SIM / USIM / ISIM", "CATTP / HTTPS", "3GPP / ETSI R12–R15"]]] },
-          { id: "mteq", name: "mTeq", title: "Создано для подключённых устройств и требовательных условий.", text: "Решения для IoT и M2M: smart meters, терминалы, логистика, industrial IoT и удалённый мониторинг.", specs: [["mTeq IoT", ["-25°C до 85°C", "2FF / 3FF / 4FF / TripleFF", "Срок хранения данных: 10 лет"]], ["mTeq Adv", ["до 105°C", "2FF / 3FF / 4FF / TripleFF / MFF2", "Для промышленного IoT"]], ["eTeq", ["MFF2", "до 105°C", "Срок хранения данных: 15 лет"]]] },
+          { id: "mteq", name: "mTeq", title: "Создано для подключённых устройств и требовательных условий.", text: "Решения для IoT и M2M: умные счётчики, терминалы, логистика, промышленный IoT и удалённый мониторинг.", specs: [["mTeq IoT", ["-25°C до 85°C", "2FF / 3FF / 4FF / TripleFF", "Срок хранения данных: 10 лет"]], ["mTeq Adv", ["до 105°C", "2FF / 3FF / 4FF / TripleFF / MFF2", "Для промышленного IoT"]], ["eTeq", ["MFF2", "до 105°C", "Срок хранения данных: 15 лет"]]] },
           { id: "euicc", name: "eUICC / eSIM", title: "Гибкое подключение без физических ограничений.", text: "Для операторов, IoT-проектов и производителей устройств, которым важно удалённое управление профилями.", specs: [["Возможности", ["Удалённое управление профилями", "Подключение без замены SIM", "Масштабирование на разные рынки"]]] },
-          { id: "payteq", name: "payTeq", title: "Решения на базе смарт-карт для безопасных финансовых сервисов.", text: "Направление для банковского и финтех-сектора без крипто-акцента и без Xentara.", specs: [["Охват", ["Банковские smart card решения", "Защищённая идентификация", "Адаптация под требования заказчика"]]] }
+          { id: "payteq", name: "payTeq", title: "Решения на базе смарт-карт для безопасных финансовых сервисов.", text: "Направление для банковского и финтех-сектора без крипто-акцента и без Xentara.", specs: [["Охват", ["Решения на базе смарт-карт для банков", "Защищённая идентификация", "Адаптация под требования заказчика"]]] }
         ],
         projectsData: [
           ["Операторы связи", "Подбор, поставка и сопровождение USIM, eUICC, OTA и RSP решений под требования сети, абонентской базы и roadmap цифровизации."],
           ["IoT / M2M проекты", "Выбор SIM/eSIM решения под устройство, среду эксплуатации, срок службы, энергопрофиль и требования удалённого управления."],
           ["OEM и производители", "SIM / eSIM / MFF2 компоненты, стабильные поставки, техническая консультация и поддержка масштабирования партии."],
-          ["Перспективные направления", "eUICC, RSP, IoT, OTA lifecycle management и региональное расширение без отдельного бренда Xentara."]
+          ["Перспективные направления", "eUICC, RSP, IoT, OTA lifecycle management и региональное расширение"]
         ],
         metricsData: [["400 млн ед.", "в год — совокупная мощность партнёрских фабрик"], ["100 млн+", "продуктов и лицензий поставлено / продано"], ["20+ лет", "опыт ведущих сотрудников в индустрии"], ["300 млн", "совокупная абонентская база клиентов"]],
-        timelineData: [["2011", "IMEX", "Партнёрство по разработке мобильных решений"], ["2016", "Terra Kognita", "Начало продаж SIM-карт на рынки Центральной Азии"], ["2018", "IGTeq Dubai", "Разработка ПО / операционных систем"], ["2022", "IG Group", "Партнёрские соглашения с ведущими производителями"], ["Сегодня", "Terra Kognita", "Развитие smart card решений для региональных и международных рынков"]],
-        processData: [["Анализ требований", "Определяем задачу: USIM, IoT, eUICC, OTA, RSP, банковское направление или другой сценарий."], ["Конфигурация", "Подбираем тип продукта, память, форм-фактор, стандарты, приложения и персонализацию."], ["Производство", "Согласуем производственную цепочку, компоненты, сроки и требования к качеству."], ["Тестирование", "Помогаем с тестированием, интеграцией и техническим запуском."], ["Lifecycle support", "Сопровождаем эксплуатацию, обновления, OTA-кампании и дальнейшее масштабирование."]]
+        timelineData: [["2011", "IMEX", "Партнёрство по разработке мобильных решений"], ["2016", "Terra Kognita", "Начало продаж смарт-карт на рынки Центральной Азии"], ["2018", "IGTeq Dubai", "Разработка ПО / операционных систем"], ["2022", "IG Group", "Партнёрские соглашения с ведущими производителями"], ["Сегодня", "Terra Kognita", "Развитие решений на базе смарт-карт для региональных и международных рынков"]],
+        processData: [["Анализ требований", "Определение задачи: USIM, IoT, eUICC, OTA, RSP, банковский сектор или другой сценарий."], ["Конфигурация", "Подбираем тип продукта, память, форм-фактор, стандарты, приложения и персонализацию."], ["Производство", "Согласуем производственную цепочку, компоненты, сроки и требования к качеству."], ["Тестирование", "Помогаем с тестированием, интеграцией и техническим запуском."], ["Поддержка жизненного цикла", "Сопровождаем эксплуатацию, обновления, OTA-кампании и дальнейшее масштабирование."]]
       },
       en: {
-        nav: { about: "Who We Are", solutions: "Solutions", products: "Products", projects: "Projects", ecosystem: "Ecosystem", contact: "Contact" },
+        nav: { about: "WHO WE ARE", solutions: "SOLUTIONS", products: "PRODUCTS", projects: "PROJECTS", ecosystem: "ECOSYSTEM", contact: "CONTACTS" },
         hero: {
-          title: "Smart Card Solutions for Telecom, IoT and Digital Services",
-          lead: "Smart card-based solutions for telecom operators, IoT projects and digital services across the CIS and Central Asia.",
-          copy: "Terra Kognita brings together team expertise, technology know-how, R&D capabilities and a partner production ecosystem to deliver projects in USIM, IoT, eUICC, OTA and RSP."
+          title: "Smart card solutions for telecom, IoT and digital services",
+          lead: "Smart card solutions for telecom operators, IoT projects and digital services across the CIS and Central Asia.",
+          copy: "Terra Kognita brings together team expertise, technology know-how, R&D capabilities and a partner production ecosystem for USIM, IoT, eUICC, OTA and RSP projects."
         },
-        cta: { talk: "Talk to our team", solutions: "View solutions", products: "Products" },
-        about: { kicker: "Who We Are", title: "Smart card partner for connected markets", text: "A regional team, international expertise and a technology base for telecom, IoT, device manufacturers and corporate clients." },
+        cta: { talk: "Contact the team", solutions: "View solutions", products: "Products" },
+        about: { kicker: "WHO WE ARE", title: "Smart card partner for connected markets", text: "A regional team with international expertise and a technology base for telecom, IoT, device manufacturers and corporate clients." },
         office: {
-          bishkek: "Bishkek — Main Sales Office", bishkekText: "Regional coordination and Central Asia market coverage.",
-          almaty: "Almaty — Sales Branch", almatyText: "Coverage for Kazakhstan and Central Asia markets.",
-          dubai: "Dubai — Software Development", dubaiText: "International technology hub.",
-          partners: "Production Partners", partnersText: "Partner factories, component suppliers and SAS-certified production sites."
+          bishkek: "Bishkek — sales office", bishkekText: "Regional coordination and market coverage across Central Asia.",
+          almaty: "Almaty — sales office", almatyText: "Coverage of Kazakhstan and Central Asia markets.",
+          dubai: "Dubai — software development", dubaiText: "International technology hub.",
+          partners: "Partners", partnersText: "Partner factories, component suppliers and SAS-certified production sites."
         },
         mission: {
           kicker: "Mission. Vision. Goal.", title: "Trust. Scale. Launch.",
           close: "Every project is built around a clear outcome: secure connectivity should be fast to deploy, stable in operation and ready to scale.",
-          missionTitle: "Mission", missionText: "To give operators, IoT teams and digital services a reliable smart card foundation: USIM, eUICC, OTA and RSP in one technology logic.",
+          missionTitle: "Mission", missionText: "To provide telecom operators, IoT teams and digital services with a reliable smart card foundation: USIM, eUICC, OTA and RSP in a single technology logic.",
           visionTitle: "Vision", visionText: "To be the partner for CIS and Central Asian markets where local expertise, security and readiness for growth matter.",
           goalTitle: "Goal", goalText: "To simplify the path from requirement to working solution: selection, configuration, supply, testing, launch and support."
         },
-        solutions: { kicker: "Advantages and Solutions", title: "Smart card ecosystem", text: "USIM, eUICC, OTA, RSP, IoT / M2M and fintech scenarios are organized into one clear solution line." },
-        products: { kicker: "Products", title: "Lineup for telecom and IoT", text: "Classic USIM cards, embedded SIM, remote management, RSP projects and solutions for the banking sector." },
-        projects: { kicker: "Projects", title: "From supply to launch", text: "Project support where the smart card becomes part of digital infrastructure: IoT, OTA, RSP, eUICC and operator services." },
-        ecosystem: { kicker: "Ecosystem and Numbers", title: "Partners. Experience. Coverage.", text: "Partner production capacity, supplied products and licenses, team experience and the combined subscriber base of customers." },
-        timeline: { title: "Main Stages" },
-        process: { kicker: "How We Work", title: "Path to implementation", text: "From initial requirement and configuration to testing, launch, operation and further scaling." },
-        contact: { kicker: "Contact", title: "Discuss your project", text: "Terra Kognita is open to partnerships with telecom operators, IoT companies, OEM manufacturers, integrators, and financial organizations." },
-        form: { name: "Name", company: "Company", country: "Country", email: "Email", phone: "Phone / Messenger", interest: "Area of interest", message: "Message", consent: "By submitting this form, I agree that Terra Kognita may process my personal data and contact me regarding my request.", submit: "Send request" },
-        footer: { copy: "© 2026 Terra Kognita. Smart card solutions for connected markets." },
+        solutions: { kicker: "ADVANTAGES & SOLUTIONS", title: "Smart card ecosystem", text: "USIM, eUICC, OTA, RSP, IoT / M2M and fintech scenarios are organized into one clear solution line." },
+        products: { kicker: "PRODUCTS", title: "Product line for telecom and IoT", text: "Classic USIM cards, embedded SIM, remote management, RSP projects and banking-sector solutions." },
+        projects: { kicker: "PROJECTS", title: "From supply to launch", text: "Project support where the smart card becomes part of a broader digital infrastructure: IoT, OTA, RSP, eUICC and operator services." },
+        ecosystem: { kicker: "ECOSYSTEM & METRICS", title: "Partners. Experience. Coverage.", text: "Partner production capacity, supplied products and licenses, team expertise and the customer subscriber base." },
+        timeline: { title: "Key milestones" },
+        process: { kicker: "HOW WE WORK", title: "From requirement to implementation", text: "A step-by-step process from initial task to testing, launch, operation and further scaling." },
+        contact: { kicker: "CONTACTS", title: "Let’s discuss your project", text: "Terra Kognita is open to partnerships with telecom operators, IoT companies, OEM manufacturers, integrators and financial organizations." },
+        form: { name: "Name", company: "Company", country: "Country", email: "Email", phone: "Phone / messenger", interest: "Area of interest", message: "Message", consent: "By submitting this form, I agree that Terra Kognita may process my personal data and contact me regarding my request.", submit: "Submit request" },
+        footer: { copy: "© Terra Kognita LLC. All rights reserved.", privacy: "Privacy Policy" },
         strengths: [
-          ["Regional Expertise", "Work across Central Asia and the CIS, with understanding of logistics, local requirements and B2B engagement."],
-          ["20+ Years in Smart Cards", "Team experience supports customers from configuration selection to testing and project support."],
-          ["R&D and Technical Support", "Own R&D team and technical support for projects that require adaptation beyond a standard card."],
-          ["Production Partnerships", "Work with chip suppliers and partner factories, including SAS-certified production sites."]
+          ["Regional expertise", "Work across Central Asia and the CIS with an understanding of logistics, local requirements and B2B projects."],
+          ["20+ years in smart cards", "Our team experience supports clients from initial configuration to testing and support."],
+          ["R&D and technical support", "A dedicated R&D team and technical support for projects that require adaptation beyond a standard card."],
+          ["Production partners", "Work with chip suppliers and partner factories, including SAS-certified production sites."]
         ],
         solutionTiles: [
-          ["USIM for Telecom Operators", "Classic USIM for 2G, 3G, 4G and 5G networks with Core, Extended and Advanced levels."],
-          ["IoT / M2M Smart Cards", "SIM solutions for telemetry, terminals, logistics, industrial IoT and smart city scenarios."],
-          ["eUICC / eSIM", "Embedded and digital SIM for remote profile management and flexible device connectivity."],
-          ["OTA Management", "Remote SIM card management and content updates without subscriber involvement."],
-          ["RSP Projects", "Project support for SIM virtualization and operator profile management."],
-          ["Banking / Fintech", "Smart card solutions for secure identification and financial services."]
+          ["USIM for operators", "Classic USIM for 2G, 3G, 4G and 5G with Core, Extended and Advanced levels."],
+          ["IoT / M2M smart cards", "SIM solutions for telemetry, terminals, logistics, industrial IoT and smart city use cases."],
+          ["eUICC / eSIM", "Embedded and digital SIMs for remote profile management and flexible device connectivity."],
+          ["OTA management", "Remote management of SIM cards and content updates without subscriber involvement."],
+          ["RSP projects", "Support for SIM virtualization and operator profile-management projects."],
+          ["Banking / fintech", "Smart card solutions for secure identification and financial services."]
         ],
         productsData: [
-          { id: "simteq", name: "simTeq", title: "Classic USIM. Reliable connectivity. Flexible configuration.", text: "A classic USIM card line for mobile operators, including Core, Ext and Adv functionality levels.", specs: [["Core", ["64 KB / 128 KB", "SIM / USIM", "SMS-PP OTA", "3GPP / ETSI R5–R6"]], ["Ext", ["64 KB / 128 KB", "SIM / USIM / ISIM", "SMS-PP / CATTP / HTTPS", "Milenage / TUAK"]], ["Adv", ["128 KB / 256 KB / 512 KB", "SIM / USIM / ISIM", "CATTP / HTTPS", "3GPP / ETSI R12–R15"]]] },
-          { id: "mteq", name: "mTeq", title: "Built for connected devices and demanding environments.", text: "Solutions for IoT and M2M devices: smart meters, terminals, logistics, industrial IoT and remote monitoring.", specs: [["mTeq IoT", ["-25°C to 85°C", "2FF / 3FF / 4FF / TripleFF", "Data retention: 10 years"]], ["mTeq Adv", ["up to 105°C", "2FF / 3FF / 4FF / TripleFF / MFF2", "Suitable for industrial IoT"]], ["eTeq", ["MFF2", "up to 105°C", "Data retention: 15 years"]]] },
-          { id: "euicc", name: "eUICC / eSIM", title: "Flexible connectivity without physical limitations.", text: "For operators, IoT projects and device manufacturers that need remote profile management.", specs: [["Capabilities", ["Remote profile management", "Connectivity without SIM swap", "Scaling across different markets"]]] },
-          { id: "payteq", name: "payTeq", title: "Smart card solutions for secure financial services.", text: "A line for banking and fintech, positioned without a crypto angle and without Xentara.", specs: [["Coverage", ["Banking smart card solutions", "Secure identification", "Adaptation to customer requirements"]]] }
+          { id: "simteq", name: "simTeq", title: "Classic USIM. Reliable connectivity. Flexible configuration.", text: "A line of classic USIM cards for mobile operators, including Core, Ext and Adv levels.", specs: [["Core", ["64 KB / 128 KB", "SIM / USIM", "SMS-PP OTA", "3GPP / ETSI R5–R6"]], ["Ext", ["64 KB / 128 KB", "SIM / USIM / ISIM", "SMS-PP / CATTP / HTTPS", "Milenage / TUAK"]], ["Adv", ["128 KB / 256 KB / 512 KB", "SIM / USIM / ISIM", "CATTP / HTTPS", "3GPP / ETSI R12–R15"]]] },
+          { id: "mteq", name: "mTeq", title: "Built for connected devices and demanding conditions.", text: "Solutions for IoT and M2M devices: smart meters, terminals, logistics, industrial IoT and remote monitoring.", specs: [["mTeq IoT", ["-25°C to 85°C", "2FF / 3FF / 4FF / TripleFF", "Data retention: 10 years"]], ["mTeq Adv", ["up to 105°C", "2FF / 3FF / 4FF / TripleFF / MFF2", "Suitable for industrial IoT"]], ["eTeq", ["MFF2", "up to 105°C", "Data retention: 15 years"]]] },
+          { id: "euicc", name: "eUICC / eSIM", title: "Flexible connectivity without physical limits.", text: "For operators, IoT projects and device manufacturers needing remote profile management.", specs: [["Capabilities", ["Remote profile management", "Connectivity without SIM swap", "Scalable across markets"]]] },
+          { id: "payteq", name: "payTeq", title: "Smart card solutions for secure financial services.", text: "A line for banking and fintech without a crypto angle and without Xentara.", specs: [["Coverage", ["Banking smart card solutions", "Secure identification", "Adaptation to customer requirements"]]] }
         ],
         projectsData: [
-          ["Telecom Operators", "Selection, supply and support of USIM, eUICC, OTA and RSP solutions tailored to network requirements and digitalization roadmap."],
-          ["IoT / M2M Projects", "Choosing the right SIM/eSIM solution for the device, operating environment, service life and remote-management requirements."],
-          ["OEMs and Device Manufacturers", "SIM / eSIM / MFF2 components, stable supply, technical consultation and production scale-up support."],
-          ["Future Directions", "eUICC, RSP, IoT, OTA lifecycle management and regional expansion without presenting Xentara as a separate brand."]
+          ["Telecom operators", "Selection, supply and support for USIM, eUICC, OTA and RSP solutions under network and digital roadmap requirements."],
+          ["IoT / M2M projects", "Choosing the right SIM / eSIM solution for the device, operating environment, service life and remote-management requirements."],
+          ["OEMs and manufacturers", "SIM / eSIM / MFF2 components, stable supply, technical consultation and production scale-up support."],
+          ["Future directions", "eUICC, RSP, IoT, OTA lifecycle management and regional expansion"]
         ],
-        metricsData: [["400M units", "per year — combined production capacity of partner factories"], ["100M+", "products and licenses supplied / sold"], ["20+ years", "senior staff experience in smart cards"], ["300M people", "combined subscriber base of customers"]],
-        timelineData: [["2011", "IMEX", "Mobile solution development partnership"], ["2016", "Terra Kognita", "Start of SIM card sales to Central Asian markets"], ["2018", "IGTeq Dubai", "Software / OS development"], ["2022", "IG Group", "Partnership agreements with leading manufacturers"], ["Today", "Terra Kognita", "Smart card solutions for regional and international markets"]],
-        processData: [["Requirement Analysis", "Defining the task: USIM, IoT, eUICC, OTA, RSP, banking or another scenario."], ["Solution Configuration", "Selecting product type, memory, form factor, standards, applications and personalization."], ["Partner Production", "Coordinating the production chain, components, timelines and quality requirements."], ["Testing and Launch", "Assisting with testing, integration and technical launch."], ["Lifecycle Support", "Supporting operation, updates, OTA campaigns and further scaling."]]
+        metricsData: [["400M units", "per year — combined production capacity of partner factories"], ["100M+", "products and licenses supplied / sold"], ["20+ years", "senior staff experience in smart cards"], ["300M people", "combined customer subscriber base"]],
+        timelineData: [["2011", "IMEX", "Mobile solution development partnership"], ["2016", "Terra Kognita", "Start of smart card sales to Central Asian markets"], ["2018", "IGTeq Dubai", "Software / OS development"], ["2022", "IG Group", "Partnership agreements with leading manufacturers"], ["Today", "Terra Kognita", "Smart card solutions for regional and international markets"]],
+        processData: [["Requirement analysis", "Definition of the task: USIM, IoT, eUICC, OTA, RSP, banking or another scenario."], ["Solution configuration", "Selecting product type, memory, form factor, standards, applications and personalization."], ["Production with partners", "Coordinating the production chain, components, timing and quality requirements."], ["Testing and launch", "Assisting with testing, integration and technical launch."], ["Lifecycle support", "Supporting operation, updates, OTA campaigns and scaling."]]
       }
     };
 
@@ -4573,36 +4609,36 @@
 
     content.ru.showcase = {
       kicker: "Платформа",
-      title: "Smart card delivery solution",
-      card1Title: "Secure OS под задачи операторов",
-      card1Text: "От классических USIM до eUICC-ready профилей: стек готовится под безопасные telecom и IoT внедрения.",
-      card2Title: "Готовность к региональному rollout",
+      title: "Решение для доставки смарт-карт",
+      card1Title: "Защищённая ОС под задачи операторов",
+      card1Text: "От классических USIM до eUICC-ready профилей: стек готовится под безопасные телеком и IoT внедрения.",
+      card2Title: "Готовность к региональному запуску",
       card2Text: "Поддержка проектов в Центральной Азии и СНГ: поставка, конфигурация, тестирование и запуск.",
-      card3Title: "OTA, RSP и lifecycle support",
-      card3Text: "Живые data-flow сценарии для удалённого управления, provisioning профилей и обновления SIM-парка."
+      card3Title: "OTA, RSP и поддержка жизненного цикла",
+      card3Text: "Живые сценарии потоков данных для удалённого управления, инициализации профилей и обновления SIM-парка."
     };
 
     content.en.showcase = {
       kicker: "Platform",
-      title: "Smart card delivery solution",
-      card1Title: "Secure OS configured for operators",
-      card1Text: "From classic USIM to eUICC-ready profiles, the stack is prepared for secure telecom and IoT deployment.",
+      title: "Smart Card Delivery Solution",
+      card1Title: "Secure OS for operator needs",
+      card1Text: "From classic USIM to eUICC-ready profiles, the stack is built for secure telecom and IoT deployment.",
       card2Title: "Ready for regional rollout",
       card2Text: "Support for Central Asia and CIS projects: supply, configuration, testing and launch coordination.",
       card3Title: "OTA, RSP and lifecycle support",
-      card3Text: "Animated data-flow workflows for remote management, profile provisioning and SIM fleet updates."
+      card3Text: "Data-flow scenarios for remote management, profile provisioning and SIM fleet updates."
     };
 
     content.ru.image = {
-      productTitle: "R&D / smart card stack",
+      productTitle: "R&D / стек смарт-карт",
       productText: "Компоненты, чипы и техническая адаптация под операторские, IoT и embedded-сценарии.",
-      projectTitle: "Telecom / IoT infrastructure",
-      projectText: "Смарт-карта как часть сети: операторы, частные сети, connected devices и удалённое управление."
+      projectTitle: "Телеком / IoT инфраструктура",
+      projectText: "Смарт-карта как часть сети: операторы, частные сети, подключённые устройства и удалённое управление."
     };
 
     content.en.image = {
       productTitle: "R&D / smart card stack",
-      productText: "Components, chips and technical adaptation for operator, IoT and embedded scenarios.",
+      productText: "Components, chips and technical adaptation for telecom, IoT and embedded scenarios.",
       projectTitle: "Telecom / IoT infrastructure",
       projectText: "A smart card as part of the network: operators, private networks, connected devices and remote management."
     };
@@ -4680,6 +4716,20 @@
       }
     `;
     document.head.appendChild(forceHeroFitStyle);
+
+
+
+    const tickerItems = {
+      ru: ["OTA", "RSP", "IoT / M2M", "ЦЕНТРАЛЬНАЯ АЗИЯ", "СМАРТ-КАРТЫ", "ФИНТЕХ", "USIM", "EUICC"],
+      en: ["OTA", "RSP", "IOT / M2M", "CENTRAL ASIA", "SMART CARDS", "FINTECH", "USIM", "EUICC"]
+    };
+
+    function renderTicker(lang) {
+      const ticker = document.querySelector("[data-ticker]");
+      if (!ticker) return;
+      const items = tickerItems[lang] || tickerItems.ru;
+      ticker.innerHTML = [...items, ...items].map(item => `<span>${item}</span>`).join("");
+    }
 
     let currentLang = "ru";
 
@@ -4869,6 +4919,7 @@
         if (value) el.placeholder = value;
       });
       document.querySelectorAll("[data-lang]").forEach(btn => btn.classList.toggle("active", btn.dataset.lang === lang));
+      renderTicker(lang);
       renderList("#strengths", content[lang].strengths);
       renderList("#solutionTiles", content[lang].solutionTiles);
       renderProducts();
@@ -4899,9 +4950,10 @@
       scrollShowcase(-1);
     });
 
-    document.querySelector("form").addEventListener("submit", event => {
-      event.preventDefault();
-      const message = currentLang === "ru" ? "Спасибо! Форма подготовлена как демо. Для рабочего сайта подключите обработчик отправки." : "Thank you. This is a demo form. Connect a form handler for production.";
+    document.querySelector("form").addEventListener("submit", () => {
+      const message = currentLang === "ru"
+        ? "Спасибо! Запрос будет отправлен на info@terkog.com."
+        : "Thank you. The request will be sent to info@terkog.com.";
       alert(message);
     });
 
@@ -4909,3 +4961,4 @@
   </script>
 </body>
 </html>
+
