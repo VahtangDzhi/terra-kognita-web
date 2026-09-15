@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Terra Kognita | Решения на базе смарт-карт</title>
-  <link rel="icon" href="terra-kognita-logo.jpg">
+  <link rel="icon" href="terra-kognita-logo-transparent.png">
   <style>
     :root {
       --navy: #071a38;
@@ -64,11 +64,11 @@
     .brand-mark {
       width: 52px;
       height: 36px;
-      border: 1px solid rgba(255,255,255,.2);
-      background: white;
-      border-radius: 7px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.18);
-      overflow: hidden;
+      border: 0;
+      background: transparent;
+      border-radius: 0;
+      box-shadow: none;
+      overflow: visible;
       display: block;
     }
 
@@ -77,7 +77,7 @@
       height: 100%;
       object-fit: contain;
       display: block;
-      padding: 3px;
+      padding: 0;
     }
 
     .brand-word {
@@ -1021,8 +1021,8 @@
     }
 
     .brand-mark {
-      width: 88px;
-      height: 38px;
+      width: 112px;
+      height: 52px;
       border: 0;
       background: transparent;
       box-shadow: none;
@@ -1032,7 +1032,7 @@
     .brand-mark img {
       padding: 0;
       object-fit: contain;
-      mix-blend-mode: multiply;
+      mix-blend-mode: normal;
     }
 
     .brand-word {
@@ -1147,7 +1147,7 @@
     }
 
     .hero-logo-card img {
-      mix-blend-mode: multiply;
+      mix-blend-mode: normal;
     }
 
     .eyebrow {
@@ -1570,7 +1570,7 @@
       }
 
       .brand-mark {
-        width: 78px;
+        width: 96px;
       }
 
       .hero {
@@ -1896,7 +1896,7 @@
       background:
         linear-gradient(90deg, rgba(18,57,98,.65), rgba(18,57,98,.18)),
         linear-gradient(135deg, transparent 12%, rgba(79,143,189,.4) 12.4%, transparent 13%);
-      mix-blend-mode: multiply;
+      mix-blend-mode: normal;
       pointer-events: none;
     }
 
@@ -2196,7 +2196,7 @@
     }
 
     .igs-content h3 {
-      overflow-wrap: anywhere;
+      overflow-wrap: normal;
     }
 
     @media (max-width: 760px) {
@@ -2518,16 +2518,16 @@
       font-size: clamp(22px, 2.15vw, 31px);
       line-height: 1.05;
       letter-spacing: 0;
-      overflow-wrap: anywhere;
-      word-break: normal;
-      hyphens: auto;
+      overflow-wrap: normal;
+      word-break: keep-all;
+      hyphens: none;
     }
 
     .card p,
     .dark .card p {
       font-size: clamp(16px, 1.35vw, 19px);
       line-height: 1.36;
-      overflow-wrap: anywhere;
+      overflow-wrap: normal;
     }
 
     @media (max-width: 1180px) {
@@ -3467,8 +3467,8 @@
       }
 
       .brand-mark {
-        width: 64px !important;
-        height: 44px !important;
+        width: 88px !important;
+        height: 52px !important;
         border: 0 !important;
         box-shadow: none !important;
         background: transparent !important;
@@ -4121,6 +4121,36 @@
       text-decoration: none;
       border-bottom: 1px solid currentColor;
     }
+    /* Process cards: prevent ugly hyphenation while keeping headings inside cards */
+    .process .step h3 {
+      font-size: clamp(17px, 1.45vw, 22px) !important;
+      line-height: 1.12 !important;
+      white-space: normal !important;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
+
+    .process .step {
+      padding-left: 28px !important;
+      padding-right: 20px !important;
+    }
+    /* Strength cards: keep long Russian headings inside card borders */
+    #strengths .card,
+    #strengths .float-card {
+      padding-left: 30px !important;
+      padding-right: 22px !important;
+    }
+
+    #strengths .card h3,
+    #strengths .float-card h3 {
+      font-size: clamp(20px, 1.65vw, 25px) !important;
+      line-height: 1.08 !important;
+      white-space: normal !important;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      hyphens: none !important;
+    }
 
   </style>
 </head>
@@ -4128,7 +4158,7 @@
   <header class="topbar">
     <nav class="nav">
       <a class="brand" href="#home" aria-label="Terra Kognita home">
-        <span class="brand-mark"><img src="terra-kognita-logo.jpg" alt=""></span>
+        <span class="brand-mark"><img src="terra-kognita-logo-transparent.png" alt=""></span>
         <span class="brand-word"><span>Terra Kognita</span><small>Решения на базе смарт-карт</small></span>
       </a>
       <div class="navlinks">
@@ -4151,7 +4181,7 @@
       <div class="hero-mountains" aria-hidden="true"></div>
       <div class="hero-inner">
         <div>
-          <div class="hero-logo-card"><img src="terra-kognita-logo.jpg" alt="Terra Kognita logo"></div>
+          <div class="hero-logo-card"><img src="terra-kognita-logo-transparent.png" alt="Terra Kognita logo"></div>
           <p class="eyebrow">Terra Kognita</p>
           <h1 data-i18n="hero.title">Решения на базе смарт-карт для телеком, IoT и цифровых сервисов</h1>
           <p class="lead" data-i18n="hero.lead">Решения на базе смарт-карт для операторов связи, IoT-проектов и цифровых сервисов в странах СНГ и Центральной Азии.</p>
@@ -4163,7 +4193,7 @@
           </div>
         </div>
         <div class="tech-panel" aria-label="Connectivity visual">
-          <div class="panel-logo-watermark"><img src="terra-kognita-logo.jpg" alt=""></div>
+          <div class="panel-logo-watermark"><img src="terra-kognita-logo-transparent.png" alt=""></div>
           <svg class="map-line" viewBox="0 0 560 490" role="img" aria-label="Региональная сеть и смарт-карта">
             <defs>
               <linearGradient id="route" x1="0" x2="1">
@@ -4302,8 +4332,8 @@
           <div class="office-list">
             <div class="office" data-office="bishkek" tabindex="0"><strong data-i18n="office.bishkek">Бишкек — главный офис продаж</strong><span data-i18n="office.bishkekText">Региональная координация и работа с рынками Центральной Азии.</span></div>
             <div class="office" data-office="almaty" tabindex="0"><strong data-i18n="office.almaty">Алматы — офис продаж</strong><span data-i18n="office.almatyText">Покрытие рынка Казахстана и Центральной Азии.</span></div>
-            <div class="office" data-office="dubai" tabindex="0"><strong data-i18n="office.dubai">Дубай — разработка ПО</strong><span data-i18n="office.dubaiText">Международный технологический хаб.</span></div>
-            <div class="office" data-office="partners" tabindex="0"><strong data-i18n="office.partners">Производственные партнёры</strong><span data-i18n="office.partnersText">Партнёрские фабрики, поставщики компонентов и SAS-сертифицированные производства.</span></div>
+            <div class="office" data-office="dubai" tabindex="0"><strong data-i18n="office.dubai">Дубай — штаб-квартира, офис разработки</strong><span data-i18n="office.dubaiText">Международная координация и разработка ПО.</span></div>
+            <div class="office" data-office="partners" tabindex="0"><strong data-i18n="office.partners">Индия, Китай, Узбекистан — производственные партнёры</strong><span data-i18n="office.partnersText">Партнёрские фабрики, поставщики компонентов и SAS-сертифицированные производства.</span></div>
           </div>
         </div>
       </div>
@@ -4477,8 +4507,8 @@
         office: {
           bishkek: "Бишкек — главный офис продаж", bishkekText: "Региональная координация и работа с рынками Центральной Азии.",
           almaty: "Алматы — офис продаж", almatyText: "Покрытие рынка Казахстана и Центральной Азии.",
-          dubai: "Дубай — разработка ПО", dubaiText: "Международный технологический хаб.",
-          partners: "Производственные партнёры", partnersText: "Партнёрские фабрики, поставщики компонентов и SAS-сертифицированные производства."
+          dubai: "Дубай — штаб-квартира, офис разработки", dubaiText: "Международная координация и разработка ПО.",
+          partners: "Индия, Китай, Узбекистан — производственные партнёры", partnersText: "Партнёрские фабрики, поставщики компонентов и SAS-сертифицированные производства."
         },
         mission: {
           kicker: "Миссия. Видение. Цель.", title: "Доверие. Масштаб. Запуск.",
@@ -4499,8 +4529,8 @@
         strengths: [
           ["Региональная экспертиза", "Работа с рынками Центральной Азии и СНГ, понимание логистики, локальных требований и B2B-проектов."],
           ["20+ лет в смарт-картах", "Опыт команды помогает сопровождать клиентов от выбора конфигурации до тестирования и поддержки."],
-          ["R&D и техподдержка", "Собственная R&D-команда и техническая поддержка для проектов, где стандартной карты недостаточно."],
-          ["Производственные партнёры", "Работа с поставщиками чипов и партнёрскими фабриками, включая SAS-сертифицированные площадки."]
+          ["R&D и техническая поддержка", "Собственная R&D-команда и техническая поддержка для проектов, где стандартной карты недостаточно."],
+          ["Партнёры производства", "Индия, Китай и Узбекистан: поставщики чипов, партнёрские фабрики и SAS-сертифицированные площадки."]
         ],
         solutionTiles: [
           ["USIM для операторов", "Классические USIM для 2G, 3G, 4G и 5G с уровнями Core, Extended и Advanced."],
@@ -4538,8 +4568,8 @@
         office: {
           bishkek: "Bishkek — sales office", bishkekText: "Regional coordination and market coverage across Central Asia.",
           almaty: "Almaty — sales office", almatyText: "Coverage of Kazakhstan and Central Asia markets.",
-          dubai: "Dubai — software development", dubaiText: "International technology hub.",
-          partners: "Partners", partnersText: "Partner factories, component suppliers and SAS-certified production sites."
+          dubai: "Dubai — headquarters and development office", dubaiText: "International coordination and software development.",
+          partners: "India, China, Uzbekistan — production partners", partnersText: "Partner factories, component suppliers and SAS-certified production sites."
         },
         mission: {
           kicker: "Mission. Vision. Goal.", title: "Trust. Scale. Launch.",
@@ -4561,7 +4591,7 @@
           ["Regional expertise", "Work across Central Asia and the CIS with an understanding of logistics, local requirements and B2B projects."],
           ["20+ years in smart cards", "Our team experience supports clients from initial configuration to testing and support."],
           ["R&D and technical support", "A dedicated R&D team and technical support for projects that require adaptation beyond a standard card."],
-          ["Production partners", "Work with chip suppliers and partner factories, including SAS-certified production sites."]
+          ["Production partners", "India, China and Uzbekistan: chip suppliers, partner factories and SAS-certified production sites."]
         ],
         solutionTiles: [
           ["USIM for operators", "Classic USIM for 2G, 3G, 4G and 5G with Core, Extended and Advanced levels."],
@@ -4961,4 +4991,11 @@
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
 
